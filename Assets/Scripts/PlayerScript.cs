@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour {
 	// Store the movement.
 	public Vector2 movement;
 
+
 	// Update is called once per frame
 	void Update () {
 		// Retrieve axis info
@@ -20,6 +21,21 @@ public class PlayerScript : MonoBehaviour {
 		movement = new Vector2 (
 			speed.x * inputX,
 			speed.y * inputY);
+
+		// Shooting.
+		bool shoot = Input.GetButtonDown ("Fire1");
+		shoot |= Input.GetButtonDown("Fire2");
+		// Careful: for Mac users, ctrl + arrow is a bad idea.
+
+		if (shoot)
+		{
+			WeaponScript weapon = GetComponent<WeaponScript>();
+			if (weapon != null)
+			{
+				// False because the player is not an enemy.
+				weapon.Attack (false);
+			}
+		}
 	}
 
 	void FixedUpdate() {

@@ -44,4 +44,4 @@ TagManager:
   - name: Background
     userID: 1
     uniqueID: 3715689953
-    locked: 0
+    locked: 1

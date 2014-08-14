@@ -13,7 +13,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400004}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: Octopus
   m_TagString: Untagged
@@ -86,7 +86,7 @@ MonoBehaviour:
   speed: {x: 10, y: 10}
   direction: {x: -1, y: 0}
   movement: {x: 0, y: 0}
---- !u!114 &11400004
+--- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -94,11 +94,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1acca234b65184e00b259dbd02bf8ca9, type: 3}
+  m_Script: {fileID: 11500000, guid: 301dd4e9c5e3c51438418a0d1eb736dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 400000, guid: e9ebc73f96c34044eab8a262ac355ccd, type: 2}
-  shootingRate: .25
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

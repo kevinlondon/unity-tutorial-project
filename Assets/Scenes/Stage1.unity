@@ -301,7 +301,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 47493898}
-  - 114: {fileID: 47493899}
   m_Layer: 0
   m_Name: 2 - Foreground
   m_TagString: Untagged
@@ -334,21 +333,6 @@ Transform:
   - {fileID: 830783125}
   m_Father: {fileID: 1557656112}
   m_RootOrder: 3
---- !u!114 &47493899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 47493897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f1cda4a94cdda242b1ab74f428e672e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: {x: 1, y: 1}
-  direction: {x: 1, y: 0}
-  isLinkedToCamera: 1
-  isLooping: 0
 --- !u!1 &106065304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,6 +2716,7 @@ GameObject:
   - 114: {fileID: 1273722155}
   - 114: {fileID: 1273722158}
   - 114: {fileID: 1273722156}
+  - 114: {fileID: 1273722157}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2830,6 +2815,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   isEnemy: 0
+--- !u!114 &1273722157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1273722150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1cda4a94cdda242b1ab74f428e672e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 1, y: 1}
+  direction: {x: 1, y: 0}
+  isLinkedToCamera: 1
+  isLooping: 0
 --- !u!114 &1273722158
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,21 +6,43 @@ using System.Collections;
 // </summary>
 
 public class EnemyScript : MonoBehaviour {
+    private bool hasSpawn;
     private WeaponScript[] weapons;
-    private MoveScript movement;
+    private MoveScript moveScript;
     
     void Awake()
     {
         // Retrieve weapon only once.
         // This will retrieve the weapon from the child.
         weapons = GetComponentsInChildren<WeaponScript>();
-        movement = GetComponent<MoveScript>();
-        movement.speed = new Vector2(Random.Range(8, 13), Random.Range(8, 13));
+        moveScript = GetComponent<MoveScript>();
     }
 
+    void Start()
+    {
+        hasSpawn = false;
+        moveScript.speed = new Vector2(Random.Range(8, 13), Random.Range(8, 13));
+        // Disable everything.
+        collider2D.enabled = false;
+        moveScript.enabled = false;
+        foreach (WeaponScript weapon in weapons)
+        {
+            weapon.enabled = false;
+        }
+    }
     // Fire on each frame (or try).
     void Update()
     {
+        // Check if the enemy has spawned.
+        if (hasSpawn == false)
+        {
+            if (renderer.isVisibleFrom(Camera.main))
+            {
+                Spawn();
+            }
+            return;
+        }
+
         foreach (WeaponScript weapon in weapons)
         {
             // Auto fire!
@@ -28,6 +50,26 @@ public class EnemyScript : MonoBehaviour {
             {
                 weapon.Attack(true);
             }
+        }
+
+        // Out of camera? Destroy it.
+        if (renderer.isVisibleFrom(Camera.main) == false)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // Activate itself.
+    private void Spawn()
+    {
+        hasSpawn = true;
+
+        // Enable everything.
+        collider2D.enabled = true;
+        moveScript.enabled = true;
+        foreach (WeaponScript weapon in weapons)
+        {
+            weapon.enabled = true;
         }
     }
 }

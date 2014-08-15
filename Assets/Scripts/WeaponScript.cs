@@ -15,7 +15,7 @@ public class WeaponScript : MonoBehaviour {
 	private float shootCooldown;
 
 	void Start() {
-		shootCooldown = 0;
+        shootCooldown = Random.Range(0, 1);
 	}
 
 	void Update() {

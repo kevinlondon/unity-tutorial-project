@@ -91,4 +91,12 @@ public class PlayerScript : MonoBehaviour {
             }
         }
     }
+
+    void OnDestroy()
+    {
+        // Game over.
+        // Add the script to the parent because the current game
+        // object is likely going to be destroyed immediately.
+        transform.parent.gameObject.AddComponent<GameOver>();
+    }
 }

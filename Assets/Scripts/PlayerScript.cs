@@ -34,6 +34,7 @@ public class PlayerScript : MonoBehaviour {
 			{
 				// False because the player is not an enemy.
 				weapon.Attack (false);
+                SoundEffectsHelper.Instance.MakePlayerShotSound();
 			}
 		}
 
@@ -41,21 +42,21 @@ public class PlayerScript : MonoBehaviour {
 		var dist = (transform.position - Camera.main.transform.position).z;
 		var leftBorder = Camera.main.ViewportToWorldPoint (
 			new Vector3 (0, 0, dist)
-				).x;
+		).x;
 		var rightBorder = Camera.main.ViewportToWorldPoint (
 			new Vector3 (1, 0, dist)
-				).x;
+		).x;
 		var topBorder = Camera.main.ViewportToWorldPoint (
 			new Vector3 (0, 0, dist)
-				).y;
+		).y;
 		var bottomBorder = Camera.main.ViewportToWorldPoint (
 			new Vector3 (0, 1, dist)
-				).y;
+		).y;
 		transform.position = new Vector3 (
 			Mathf.Clamp (transform.position.x, leftBorder, rightBorder),
 			Mathf.Clamp (transform.position.y, topBorder, bottomBorder),
 			transform.position.z
-				);
+		);
 
 	}
 
